@@ -1,0 +1,19 @@
+{
+  "name": "nullform/http-status",
+  "description": "HTTP status codes as constants",
+  "type": "library",
+  "keywords": ["http", "status", "codes"],
+  "homepage": "https://github.com/nullform/app-timer",
+  "license": "MIT",
+  "authors": [
+	{
+	  "name": "Pavel Novikov"
+	}
+  ],
+  "autoload": {
+	"psr-4": {"Nullform\\": "src/"}
+  },
+  "require": {
+	"php": ">=7.0"
+  }
+}

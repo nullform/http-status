@@ -1,0 +1,1 @@
+HTTP status codes as constants in one simple class.
