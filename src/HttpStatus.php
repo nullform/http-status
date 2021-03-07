@@ -492,4 +492,199 @@ class HttpStatus
      * @see https://tools.ietf.org/html/rfc7231#section-6.6.6
      */
     const HTTP_VERSION_NOT_SUPPORTED = 505;
+
+
+    /**
+     * The request was received, continuing process.
+     *
+     * @param int $status
+     * @return bool
+     */
+    public static function isInformational(int $status): bool
+    {
+        return (bool)preg_match("/^1[\d]{2}$/", (string)$status);
+    }
+
+    /**
+     * The request was successfully received, understood, and accepted.
+     *
+     * @param int $status
+     * @return bool
+     */
+    public static function isSuccessful(int $status): bool
+    {
+        return (bool)preg_match("/^2[\d]{2}$/", (string)$status);
+    }
+
+    /**
+     * Further action needs to be taken in order to complete the request.
+     *
+     * @param int $status
+     * @return bool
+     */
+    public static function isRedirection(int $status): bool
+    {
+        return (bool)preg_match("/^3[\d]{2}$/", (string)$status);
+    }
+
+    /**
+     * The request contains bad syntax or cannot be fulfilled.
+     *
+     * @param int $status
+     * @return bool
+     */
+    public static function isClientError(int $status): bool
+    {
+        return (bool)preg_match("/^4[\d]{2}$/", (string)$status);
+    }
+
+    /**
+     * The server failed to fulfill an apparently valid request.
+     *
+     * @param int $status
+     * @return bool
+     */
+    public static function isServerError(int $status): bool
+    {
+        return (bool)preg_match("/^5[\d]{2}$/", (string)$status);
+    }
+
+    /**
+     * HTTP status reason phrase.
+     *
+     * @param int $status
+     * @return string
+     */
+    public static function reason(int $status): string
+    {
+        $reason = "";
+
+        switch ($status) {
+            case static::CONTINUE:
+                $reason = "Continue";
+                break;
+            case static::SWITCHING_PROTOCOLS:
+                $reason = "Switching Protocols";
+                break;
+            case static::OK:
+                $reason = "OK";
+                break;
+            case static::CREATED:
+                $reason = "Created";
+                break;
+            case static::ACCEPTED:
+                $reason = "Accepted";
+                break;
+            case static::NON_AUTHORITATIVE_INFORMATION:
+                $reason = "Non-Authoritative Information";
+                break;
+            case static::NO_CONTENT:
+                $reason = "No Content";
+                break;
+            case static::RESET_CONTENT:
+                $reason = "Reset Content";
+                break;
+            case static::PARTIAL_CONTENT:
+                $reason = "Partial Content";
+                break;
+            case static::MULTIPLE_CHOICES:
+                $reason = "Multiple Choices";
+                break;
+            case static::MOVED_PERMANENTLY:
+                $reason = "Moved Permanently";
+                break;
+            case static::FOUND:
+                $reason = "Found";
+                break;
+            case static::SEE_OTHER:
+                $reason = "See Other";
+                break;
+            case static::NOT_MODIFIED:
+                $reason = "Not Modified";
+                break;
+            case static::USE_PROXY:
+                $reason = "Use Proxy";
+                break;
+            case static::TEMPORARY_REDIRECT:
+                $reason = "Temporary Redirect";
+                break;
+            case static::BAD_REQUEST:
+                $reason = "Bad Request";
+                break;
+            case static::UNAUTHORIZED:
+                $reason = "Unauthorized";
+                break;
+            case static::PAYMENT_REQUIRED:
+                $reason = "Payment Required";
+                break;
+            case static::FORBIDDEN:
+                $reason = "Forbidden";
+                break;
+            case static::NOT_FOUND:
+                $reason = "Not Found";
+                break;
+            case static::METHOD_NOT_ALLOWED:
+                $reason = "Method Not Allowed";
+                break;
+            case static::NOT_ACCEPTABLE:
+                $reason = "Not Acceptable";
+                break;
+            case static::PROXY_AUTHENTICATION_REQUIRED:
+                $reason = "Proxy Authentication Required";
+                break;
+            case static::REQUEST_TIMEOUT:
+                $reason = "Request Timeout";
+                break;
+            case static::CONFLICT:
+                $reason = "Conflict";
+                break;
+            case static::GONE:
+                $reason = "Gone";
+                break;
+            case static::LENGTH_REQUIRED:
+                $reason = "Length Required";
+                break;
+            case static::PRECONDITION_FAILED:
+                $reason = "Precondition Failed";
+                break;
+            case static::PAYLOAD_TOO_LARGE:
+                $reason = "Payload Too Large";
+                break;
+            case static::URI_TOO_LONG:
+                $reason = "URI Too Long";
+                break;
+            case static::UNSUPPORTED_MEDIA_TYPE:
+                $reason = "Unsupported Media Type";
+                break;
+            case static::RANGE_NOT_SATISFIABLE:
+                $reason = "Range Not Satisfiable";
+                break;
+            case static::EXPECTATION_FAILED:
+                $reason = "Expectation Failed";
+                break;
+            case static::UPGRADE_REQUIRED:
+                $reason = "Upgrade Required";
+                break;
+            case static::INTERNAL_SERVER_ERROR:
+                $reason = "Internal Server Error";
+                break;
+            case static::NOT_IMPLEMENTED:
+                $reason = "Not Implemented";
+                break;
+            case static::BAD_GATEWAY:
+                $reason = "Bad Gateway";
+                break;
+            case static::SERVICE_UNAVAILABLE:
+                $reason = "Service Unavailable";
+                break;
+            case static::GATEWAY_TIMEOUT:
+                $reason = "Gateway Timeout";
+                break;
+            case static::HTTP_VERSION_NOT_SUPPORTED:
+                $reason = "HTTP Version Not Supported";
+                break;
+        }
+
+        return $reason;
+    }
 }
