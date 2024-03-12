@@ -5,7 +5,7 @@ namespace Nullform;
 /**
  * HTTP/1.1 status codes (RFC 9110).
  *
- * @see https://datatracker.ietf.org/doc/html/rfc9110
+ * @link https://www.rfc-editor.org/rfc/rfc9110#name-status-codes
  */
 class HttpStatus
 {
@@ -17,7 +17,7 @@ class HttpStatus
      * The server intends to send a final response after the request has been
      * fully received and acted upon.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-100-continue
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-100-continue
      */
     const CONTINUE = 100;
 
@@ -31,7 +31,7 @@ class HttpStatus
      * field in the response that indicates which protocol(s) will be in effect
      * after this response.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-101-switching-protocols
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-101-switching-protocols
      */
     const SWITCHING_PROTOCOLS = 101;
 
@@ -41,7 +41,7 @@ class HttpStatus
      * The 200 (OK) status code indicates that the request has succeeded.
      * The content sent in a 200 response depends on the request method.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-200-ok
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-200-ok
      */
     const OK = 200;
 
@@ -51,7 +51,7 @@ class HttpStatus
      * The 201 (Created) status code indicates that the request has been
      * fulfilled and has resulted in one or more new resources being created.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-201-created
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-201-created
      */
     const CREATED = 201;
 
@@ -61,7 +61,7 @@ class HttpStatus
      * The 202 (Accepted) status code indicates that the request has been
      * accepted for processing, but the processing has not been completed.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-202-accepted
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-202-accepted
      */
     const ACCEPTED = 202;
 
@@ -73,7 +73,7 @@ class HttpStatus
      * from that of the origin server's 200 (OK) response by a transforming
      * proxy.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-203-non-authoritative-infor
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-203-non-authoritative-infor
      */
     const NON_AUTHORITATIVE_INFORMATION = 203;
 
@@ -84,7 +84,7 @@ class HttpStatus
      * successfully fulfilled the request and that there is no additional
      * content to send in the response content.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-204-no-content
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-204-no-content
      */
     const NO_CONTENT = 204;
 
@@ -96,7 +96,7 @@ class HttpStatus
      * "document view", which caused the request to be sent, to its original
      * state as received from the origin server.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-205-reset-content
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-205-reset-content
      */
     const RESET_CONTENT = 205;
 
@@ -107,7 +107,7 @@ class HttpStatus
      * successfully fulfilling a range request for the target resource by
      * transferring one or more parts of the selected representation.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-206-partial-content
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-206-partial-content
      */
     const PARTIAL_CONTENT = 206;
 
@@ -121,7 +121,7 @@ class HttpStatus
      * representation by redirecting its request to one or more of those
      * identifiers.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-300-multiple-choices
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-300-multiple-choices
      */
     const MULTIPLE_CHOICES = 300;
 
@@ -132,7 +132,7 @@ class HttpStatus
      * resource has been assigned a new permanent URI and any future references
      * to this resource ought to use one of the enclosed URIs.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-301-moved-permanently
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-301-moved-permanently
      */
     const MOVED_PERMANENTLY = 301;
 
@@ -144,7 +144,7 @@ class HttpStatus
      * altered on occasion, the client ought to continue to use the target URI
      * for future requests.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-302-found
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-302-found
      */
     const FOUND = 302;
 
@@ -156,7 +156,7 @@ class HttpStatus
      * Location header field, which is intended to provide an indirect response
      * to the original request.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-303-see-other
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-303-see-other
      */
     const SEE_OTHER = 303;
 
@@ -168,7 +168,7 @@ class HttpStatus
      * response if it were not for the fact that the condition evaluated to
      * false.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-304-not-modified
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-304-not-modified
      */
     const NOT_MODIFIED = 304;
 
@@ -178,7 +178,7 @@ class HttpStatus
      * The requested resource is available only through a proxy, the address
      * for which is provided in the response.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-305-use-proxy
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-305-use-proxy
      * @deprecated The 305 (Use Proxy) status code was defined in a previous
      *     version of this specification and is now deprecated.
      */
@@ -194,7 +194,7 @@ class HttpStatus
      * client ought to continue using the original target URI for future
      * requests.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-307-temporary-redirect
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-307-temporary-redirect
      */
     const TEMPORARY_REDIRECT = 307;
 
@@ -208,7 +208,7 @@ class HttpStatus
      * The server SHOULD generate a Location header field in the response
      * containing a preferred URI reference for the new permanent URI.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-308-permanent-redirect
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-308-permanent-redirect
      */
     const PERMANENT_REDIRECT = 308;
 
@@ -220,7 +220,7 @@ class HttpStatus
      * client error (e.g., malformed request syntax, invalid request message
      * framing, or deceptive request routing).
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-400-bad-request
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-400-bad-request
      */
     const BAD_REQUEST = 400;
 
@@ -233,7 +233,7 @@ class HttpStatus
      * WWW-Authenticate header field containing at least one challenge
      * applicable to the target resource.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-401-unauthorized
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-401-unauthorized
      */
     const UNAUTHORIZED = 401;
 
@@ -242,7 +242,7 @@ class HttpStatus
      *
      * The 402 (Payment Required) status code is reserved for future use.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-402-payment-required
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-402-payment-required
      */
     const PAYMENT_REQUIRED = 402;
 
@@ -254,7 +254,7 @@ class HttpStatus
      * why the request has been forbidden can describe that reason in the
      * response content (if any).
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-403-forbidden
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-403-forbidden
      */
     const FORBIDDEN = 403;
 
@@ -265,7 +265,7 @@ class HttpStatus
      * find a current representation for the target resource or is not willing
      * to disclose that one exists.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-404-not-found
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-404-not-found
      */
     const NOT_FOUND = 404;
 
@@ -278,7 +278,7 @@ class HttpStatus
      * Allow header field in a 405 response containing a list of the target
      * resource's currently supported methods.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-405-method-not-allowed
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-405-method-not-allowed
      */
     const METHOD_NOT_ALLOWED = 405;
 
@@ -291,7 +291,7 @@ class HttpStatus
      * received in the request, and the server is unwilling to supply a default
      * representation.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-406-not-acceptable
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-406-not-acceptable
      */
     const NOT_ACCEPTABLE = 406;
 
@@ -304,7 +304,7 @@ class HttpStatus
      * Proxy-Authenticate header field containing a challenge applicable to
      * that proxy for the request.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-407-proxy-authentication-re
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-407-proxy-authentication-re
      */
     const PROXY_AUTHENTICATION_REQUIRED = 407;
 
@@ -318,7 +318,7 @@ class HttpStatus
      * it would be in HTTP/1.1 because request delimitation is lost), a new
      * connection will be used.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-408-request-timeout
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-408-request-timeout
      */
     const REQUEST_TIMEOUT = 408;
 
@@ -332,7 +332,7 @@ class HttpStatus
      * generate content that includes enough information for a user to
      * recognize the source of the conflict.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-409-conflict
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-409-conflict
      */
     const CONFLICT = 409;
 
@@ -345,7 +345,7 @@ class HttpStatus
      * facility to determine, whether or not the condition is permanent, the
      * status code 404 (Not Found) ought to be used instead.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-410-gone
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-410-gone
      */
     const GONE = 410;
 
@@ -357,7 +357,7 @@ class HttpStatus
      * The client MAY repeat the request if it adds a valid Content-Length
      * header field containing the length of the request content.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-411-length-required
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-411-length-required
      */
     const LENGTH_REQUIRED = 411;
 
@@ -371,7 +371,7 @@ class HttpStatus
      * representations and metadata) and, thus, prevent the request method from
      * being applied if the target resource is in an unexpected state.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-412-precondition-failed
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-412-precondition-failed
      */
     const PRECONDITION_FAILED = 412;
 
@@ -388,7 +388,7 @@ class HttpStatus
      * header field to indicate that it is temporary and after what time the
      * client MAY try again.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-413-content-too-large
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-413-content-too-large
      */
     const CONTENT_TOO_LARGE = 413;
 
@@ -397,7 +397,7 @@ class HttpStatus
      *
      * @deprecated
      * @see HttpStatus::CONTENT_TOO_LARGE
-     * @see https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.11
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-413-content-too-large
      */
     const PAYLOAD_TOO_LARGE = 413;
 
@@ -413,7 +413,7 @@ class HttpStatus
      * to a suffix of itself) or when the server is under attack by a client
      * attempting to exploit potential security holes.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-414-uri-too-long
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-414-uri-too-long
      */
     const URI_TOO_LONG = 414;
 
@@ -424,7 +424,7 @@ class HttpStatus
      * server is refusing to service the request because the content is in a
      * format not supported by this method on the target resource.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-415-unsupported-media-type
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-415-unsupported-media-type
      */
     const UNSUPPORTED_MEDIA_TYPE = 415;
 
@@ -442,7 +442,7 @@ class HttpStatus
      * generate a Content-Range header field specifying the current length of
      * the selected representation.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-416-range-not-satisfiable
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-416-range-not-satisfiable
      */
     const RANGE_NOT_SATISFIABLE = 416;
 
@@ -453,7 +453,7 @@ class HttpStatus
      * given in the request's Expect header field could not be met by at least
      * one of the inbound servers.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-417-expectation-failed
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-417-expectation-failed
      */
     const EXPECTATION_FAILED = 417;
 
@@ -468,7 +468,7 @@ class HttpStatus
      * or does not match the connection context over which the request was
      * received.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-421-misdirected-request
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-421-misdirected-request
      */
     const MISDIRECTED_REQUEST = 421;
 
@@ -482,6 +482,8 @@ class HttpStatus
      * contained instructions. For example, this status code can be sent if an
      * XML request content contains well-formed (i.e., syntactically correct),
      * but semantically erroneous XML instructions.
+     *
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-422-unprocessable-content
      */
     const UNPROCESSABLE_CONTENT = 422;
 
@@ -494,7 +496,7 @@ class HttpStatus
      * MUST send an Upgrade header field in a 426 response to indicate the
      * required protocol(s).
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-426-upgrade-required
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-426-upgrade-required
      */
     const UPGRADE_REQUIRED = 426;
 
@@ -505,7 +507,7 @@ class HttpStatus
      * encountered an unexpected condition that prevented it from fulfilling
      * the request.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-500-internal-server-error
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-500-internal-server-error
      */
     const INTERNAL_SERVER_ERROR = 500;
 
@@ -517,7 +519,7 @@ class HttpStatus
      * appropriate response when the server does not recognize the request
      * method and is not capable of supporting it for any resource.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-501-not-implemented
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-501-not-implemented
      */
     const NOT_IMPLEMENTED = 501;
 
@@ -528,7 +530,7 @@ class HttpStatus
      * acting as a gateway or proxy, received an invalid response from an
      * inbound server it accessed while attempting to fulfill the request.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-502-bad-gateway
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-502-bad-gateway
      */
     const BAD_GATEWAY = 502;
 
@@ -541,7 +543,7 @@ class HttpStatus
      * The server MAY send a Retry-After header field to suggest an appropriate
      * amount of time for the client to wait before retrying the request.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-503-service-unavailable
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-503-service-unavailable
      */
     const SERVICE_UNAVAILABLE = 503;
 
@@ -552,7 +554,7 @@ class HttpStatus
      * acting as a gateway or proxy, did not receive a timely response from an
      * upstream server it needed to access in order to complete the request.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-504-gateway-timeout
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-504-gateway-timeout
      */
     const GATEWAY_TIMEOUT = 504;
 
@@ -563,7 +565,7 @@ class HttpStatus
      * server does not support, or refuses to support, the major version of
      * HTTP that was used in the request message.
      *
-     * @see https://datatracker.ietf.org/doc/html/rfc9110#name-505-http-version-not-suppor
+     * @link https://www.rfc-editor.org/rfc/rfc9110#name-505-http-version-not-suppor
      */
     const HTTP_VERSION_NOT_SUPPORTED = 505;
 
