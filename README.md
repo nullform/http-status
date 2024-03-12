@@ -2,7 +2,7 @@
 
 HTTP status codes as constants in one simple class.
 
-[RFC 9110](https://datatracker.ietf.org/doc/html/rfc9110)
+[RFC 9110](https://www.rfc-editor.org/rfc/rfc9110)
 
 ## Installation
 
@@ -10,7 +10,7 @@ HTTP status codes as constants in one simple class.
 composer require nullform/http-status
 ```
 
-## Constants
+## HttpStatus constants
 
 - HttpStatus::CONTINUE
 - HttpStatus::SWITCHING_PROTOCOLS
@@ -57,29 +57,78 @@ composer require nullform/http-status
 - HttpStatus::GATEWAY_TIMEOUT
 - HttpStatus::HTTP_VERSION_NOT_SUPPORTED
 
-## Methods
+## HttpStatus methods
 
-**`HttpStatus::isInformational ( int $status ) : bool`**
+```php
+HttpStatus::isInformational(int $status): bool
+```
 
 The request was received, continuing process.
 
-**`HttpStatus::isSuccessful ( int $status ) : bool`**
+```php
+HttpStatus::isSuccessful(int $status): bool
+```
 
 The request was successfully received, understood, and accepted.
 
-**`HttpStatus::isRedirection ( int $status ) : bool`**
+```php
+HttpStatus::isRedirection(int $status): bool
+```
 
 Further action needs to be taken in order to complete the request.
 
-**`HttpStatus::isClientError ( int $status ) : bool`**
+```php
+HttpStatus::isClientError(int $status): bool
+```
 
 The request contains bad syntax or cannot be fulfilled.
 
-**`HttpStatus::isServerError ( int $status ) : bool`**
+```php
+HttpStatus::isServerError(int $status): bool
+```
 
 The server failed to fulfill an apparently valid request.
 
-**`HttpStatus::reason ( int $status ) : string`**
-**`HttpStatus::getReason ( int $status ) : string`**
+```php
+HttpStatus::getReason(int $status): string
+```
 
 HTTP status reason phrase.
+
+```php
+HttpStatus::getDescription(int $status): string
+```
+
+HTTP status description.
+
+```php
+HttpStatus::getAllReasons(): string[]
+```
+
+All HTTP status codes (array keys) with reason phrases (array values).
+
+```php
+HttpStatus::getAllDescriptions(): string[]
+```
+
+All HTTP status codes (array keys) with status descriptions (array values).
+
+## HttpStatusCode class
+
+You can use the **HttpStatusCode** class to represent any HTTP status code.
+
+Example:
+
+```php
+use Nullform\HttpStatusCode;
+
+// some code...
+
+$status = new HttpStatusCode($response->getStatusCode());
+
+if ($status->isSuccessful()) {
+    // some code...
+} else {
+    throw new \Exception($status->getReason() . '. ' . $status->getDescription());
+}
+```
