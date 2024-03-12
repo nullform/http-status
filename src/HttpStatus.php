@@ -567,6 +567,109 @@ class HttpStatus
      */
     const HTTP_VERSION_NOT_SUPPORTED = 505;
 
+    /**
+     * HTTP status reason phrases.
+     *
+     * @var string[]
+     */
+    protected static $reasons = [
+        self::CONTINUE => 'Continue',
+        self::SWITCHING_PROTOCOLS => 'Switching Protocols',
+        self::OK => 'OK',
+        self::CREATED => 'Created',
+        self::ACCEPTED => 'Accepted',
+        self::NON_AUTHORITATIVE_INFORMATION => 'Non-Authoritative Information',
+        self::NO_CONTENT => 'No Content',
+        self::RESET_CONTENT => 'Reset Content',
+        self::PARTIAL_CONTENT => 'Partial Content',
+        self::MULTIPLE_CHOICES => 'Multiple Choices',
+        self::MOVED_PERMANENTLY => 'Moved Permanently',
+        self::FOUND => 'Found',
+        self::SEE_OTHER => 'See Other',
+        self::NOT_MODIFIED => 'Not Modified',
+        self::USE_PROXY => 'Use Proxy',
+        self::TEMPORARY_REDIRECT => 'Temporary Redirect',
+        self::PERMANENT_REDIRECT => 'Permanent Redirect',
+        self::BAD_REQUEST => 'Bad Request',
+        self::UNAUTHORIZED => 'Unauthorized',
+        self::PAYMENT_REQUIRED => 'Payment Required',
+        self::FORBIDDEN => 'Forbidden',
+        self::NOT_FOUND => 'Not Found',
+        self::METHOD_NOT_ALLOWED => 'Method Not Allowed',
+        self::NOT_ACCEPTABLE => 'Not Acceptable',
+        self::PROXY_AUTHENTICATION_REQUIRED => 'Proxy Authentication Required',
+        self::REQUEST_TIMEOUT => 'Request Timeout',
+        self::CONFLICT => 'Conflict',
+        self::GONE => 'Gone',
+        self::LENGTH_REQUIRED => 'Length Required',
+        self::PRECONDITION_FAILED => 'Precondition Failed',
+        self::CONTENT_TOO_LARGE => 'Content Too Large',
+        self::URI_TOO_LONG => 'URI Too Long',
+        self::UNSUPPORTED_MEDIA_TYPE => 'Unsupported Media Type',
+        self::RANGE_NOT_SATISFIABLE => 'Range Not Satisfiable',
+        self::EXPECTATION_FAILED => 'Expectation Failed',
+        self::MISDIRECTED_REQUEST => 'Misdirected Request',
+        self::UNPROCESSABLE_CONTENT => 'Unprocessable Content',
+        self::UPGRADE_REQUIRED => 'Upgrade Required',
+        self::INTERNAL_SERVER_ERROR => 'Internal Server Error',
+        self::NOT_IMPLEMENTED => 'Not Implemented',
+        self::BAD_GATEWAY => 'Bad Gateway',
+        self::SERVICE_UNAVAILABLE => 'Service Unavailable',
+        self::GATEWAY_TIMEOUT => 'Gateway Timeout',
+        self::HTTP_VERSION_NOT_SUPPORTED => 'HTTP Version Not Supported',
+    ];
+
+    /**
+     * HTTP status descriptions.
+     *
+     * @var string[]
+     */
+    protected static $descriptions = [
+        self::CONTINUE => 'The initial part of a request has been received and has not yet been rejected by the server.',
+        self::SWITCHING_PROTOCOLS => 'The server understands and is willing to comply with the client\'s request, via the "Upgrade" header field, for a change in the application protocol being used on this connection.',
+        self::OK => 'The request has succeeded.',
+        self::CREATED => 'The request has been fulfilled and has resulted in one or more new resources being created.',
+        self::ACCEPTED => 'The request has been accepted for processing, but the processing has not been completed.',
+        self::NON_AUTHORITATIVE_INFORMATION => 'The request was successful but the enclosed content has been modified from that of the origin server\'s successfull response by a transforming proxy.',
+        self::NO_CONTENT => 'The server has successfully fulfilled the request and there is no additional content to send in the response content.',
+        self::RESET_CONTENT => 'The server has fulfilled the request and desires that the user agent reset the "document view", which caused the request to be sent, to its original state as received from the origin server.',
+        self::PARTIAL_CONTENT => 'The server is successfully fulfilling a range request for the target resource by transferring one or more parts of the selected representation.',
+        self::MULTIPLE_CHOICES => 'The target resource has more than one representation, each with its own more specific identifier, and information about the alternatives is being provided.',
+        self::MOVED_PERMANENTLY => 'The target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs.',
+        self::FOUND => 'The target resource resides temporarily under a different URI.',
+        self::SEE_OTHER => 'The server is redirecting the user agent to a different resource, which is intended to provide an indirect response to the original request.',
+        self::NOT_MODIFIED => 'There is no need for the server to transfer a representation of the target resource because the request indicates that the client already has a valid representation.',
+        self::USE_PROXY => 'The requested resource is available only through a proxy.',
+        self::TEMPORARY_REDIRECT => 'The target resource resides temporarily under a different URI and the user agent MUST NOT change the request method.',
+        self::PERMANENT_REDIRECT => 'The target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs.',
+        self::BAD_REQUEST => 'The server cannot or will not process the request due to something that is perceived to be a client error.',
+        self::UNAUTHORIZED => 'The request has not been applied because it lacks valid authentication credentials for the target resource.',
+        self::PAYMENT_REQUIRED => 'Payment required.',
+        self::FORBIDDEN => 'The server understood the request but refuses to fulfill it.',
+        self::NOT_FOUND => 'The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.',
+        self::METHOD_NOT_ALLOWED => 'The method received in the request-line is known by the origin server but not supported by the target resource.',
+        self::NOT_ACCEPTABLE => 'The target resource does not have a current representation that would be acceptable to the user agent.',
+        self::PROXY_AUTHENTICATION_REQUIRED => 'The request has not been applied because it lacks valid authentication credentials for the target resource. The client needs to authenticate itself in order to use a proxy for this request.',
+        self::REQUEST_TIMEOUT => 'The server did not receive a complete request message within the time that it was prepared to wait.',
+        self::CONFLICT => 'The request could not be completed due to a conflict with the current state of the target resource.',
+        self::GONE => 'Access to the target resource is no longer available at the origin server and this condition is likely to be permanent.',
+        self::LENGTH_REQUIRED => 'The server refuses to accept the request without a defined "Content-Length" header field.',
+        self::PRECONDITION_FAILED => 'One or more conditions given in the request header fields evaluated to false when tested on the server.',
+        self::CONTENT_TOO_LARGE => 'The server is refusing to process a request because the request content is larger than the server is willing or able to process.',
+        self::URI_TOO_LONG => 'The server is refusing to service the request because the target URI is longer than the server is willing to interpret.',
+        self::UNSUPPORTED_MEDIA_TYPE => 'The origin server is refusing to service the request because the content is in a format not supported by this method on the target resource.',
+        self::RANGE_NOT_SATISFIABLE => 'The set of ranges in the request\'s "Range" header field has been rejected either because none of the requested ranges are satisfiable or because the client has requested an excessive number of small or overlapping ranges.',
+        self::EXPECTATION_FAILED => 'The expectation given in the request\'s "Expect" header field could not be met by at least one of the inbound servers.',
+        self::MISDIRECTED_REQUEST => 'The request was directed at a server that is unable or unwilling to produce an authoritative response for the target URI.',
+        self::UNPROCESSABLE_CONTENT => 'The server understands the content type of the request content, and the syntax of the request content is correct, but it was unable to process the contained instructions.',
+        self::UPGRADE_REQUIRED => 'The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol.',
+        self::INTERNAL_SERVER_ERROR => 'The server encountered an unexpected condition that prevented it from fulfilling the request.',
+        self::NOT_IMPLEMENTED => 'The server does not support the functionality required to fulfill the request.',
+        self::BAD_GATEWAY => 'The server, while acting as a gateway or proxy, received an invalid response from an inbound server it accessed while attempting to fulfill the request.',
+        self::SERVICE_UNAVAILABLE => 'The server is currently unable to handle the request due to a temporary overload or scheduled maintenance.',
+        self::GATEWAY_TIMEOUT => 'The server, while acting as a gateway or proxy, did not receive a timely response from an upstream server it needed to access in order to complete the request.',
+        self::HTTP_VERSION_NOT_SUPPORTED => 'The server does not support, or refuses to support, the major version of HTTP that was used in the request message.',
+    ];
 
     /**
      * The request was received, continuing process.
@@ -624,163 +727,57 @@ class HttpStatus
     }
 
     /**
+     * Alias for HttpStatus::getReason().
+     *
+     * @param int $status
+     * @return string
+     * @deprecated Use getReason().
+     */
+    public static function reason(int $status): string
+    {
+        return static::getReason($status);
+    }
+
+    /**
      * HTTP status reason phrase.
      *
      * @param int $status
      * @return string
      */
-    public static function reason(int $status): string
+    public static function getReason(int $status): string
     {
-        $reason = "";
-
-        switch ($status) {
-            case static::CONTINUE:
-                $reason = "Continue";
-                break;
-            case static::SWITCHING_PROTOCOLS:
-                $reason = "Switching Protocols";
-                break;
-            case static::OK:
-                $reason = "OK";
-                break;
-            case static::CREATED:
-                $reason = "Created";
-                break;
-            case static::ACCEPTED:
-                $reason = "Accepted";
-                break;
-            case static::NON_AUTHORITATIVE_INFORMATION:
-                $reason = "Non-Authoritative Information";
-                break;
-            case static::NO_CONTENT:
-                $reason = "No Content";
-                break;
-            case static::RESET_CONTENT:
-                $reason = "Reset Content";
-                break;
-            case static::PARTIAL_CONTENT:
-                $reason = "Partial Content";
-                break;
-            case static::MULTIPLE_CHOICES:
-                $reason = "Multiple Choices";
-                break;
-            case static::MOVED_PERMANENTLY:
-                $reason = "Moved Permanently";
-                break;
-            case static::FOUND:
-                $reason = "Found";
-                break;
-            case static::SEE_OTHER:
-                $reason = "See Other";
-                break;
-            case static::NOT_MODIFIED:
-                $reason = "Not Modified";
-                break;
-            case static::USE_PROXY:
-                $reason = "Use Proxy";
-                break;
-            case static::TEMPORARY_REDIRECT:
-                $reason = "Temporary Redirect";
-                break;
-            case static::PERMANENT_REDIRECT:
-                $reason = "Permanent Redirect";
-                break;
-            case static::BAD_REQUEST:
-                $reason = "Bad Request";
-                break;
-            case static::UNAUTHORIZED:
-                $reason = "Unauthorized";
-                break;
-            case static::PAYMENT_REQUIRED:
-                $reason = "Payment Required";
-                break;
-            case static::FORBIDDEN:
-                $reason = "Forbidden";
-                break;
-            case static::NOT_FOUND:
-                $reason = "Not Found";
-                break;
-            case static::METHOD_NOT_ALLOWED:
-                $reason = "Method Not Allowed";
-                break;
-            case static::NOT_ACCEPTABLE:
-                $reason = "Not Acceptable";
-                break;
-            case static::PROXY_AUTHENTICATION_REQUIRED:
-                $reason = "Proxy Authentication Required";
-                break;
-            case static::REQUEST_TIMEOUT:
-                $reason = "Request Timeout";
-                break;
-            case static::CONFLICT:
-                $reason = "Conflict";
-                break;
-            case static::GONE:
-                $reason = "Gone";
-                break;
-            case static::LENGTH_REQUIRED:
-                $reason = "Length Required";
-                break;
-            case static::PRECONDITION_FAILED:
-                $reason = "Precondition Failed";
-                break;
-            case static::CONTENT_TOO_LARGE:
-            case static::PAYLOAD_TOO_LARGE:
-                $reason = "Content Too Large";
-                break;
-            case static::URI_TOO_LONG:
-                $reason = "URI Too Long";
-                break;
-            case static::UNSUPPORTED_MEDIA_TYPE:
-                $reason = "Unsupported Media Type";
-                break;
-            case static::RANGE_NOT_SATISFIABLE:
-                $reason = "Range Not Satisfiable";
-                break;
-            case static::EXPECTATION_FAILED:
-                $reason = "Expectation Failed";
-                break;
-            case static::MISDIRECTED_REQUEST:
-                $reason = "Misdirected Request";
-                break;
-            case static::UNPROCESSABLE_CONTENT:
-                $reason = "Unprocessable Content";
-                break;
-            case static::UPGRADE_REQUIRED:
-                $reason = "Upgrade Required";
-                break;
-            case static::INTERNAL_SERVER_ERROR:
-                $reason = "Internal Server Error";
-                break;
-            case static::NOT_IMPLEMENTED:
-                $reason = "Not Implemented";
-                break;
-            case static::BAD_GATEWAY:
-                $reason = "Bad Gateway";
-                break;
-            case static::SERVICE_UNAVAILABLE:
-                $reason = "Service Unavailable";
-                break;
-            case static::GATEWAY_TIMEOUT:
-                $reason = "Gateway Timeout";
-                break;
-            case static::HTTP_VERSION_NOT_SUPPORTED:
-                $reason = "HTTP Version Not Supported";
-                break;
-        }
-
-        return $reason;
+        return static::$reasons[$status] ?? '';
     }
 
     /**
-     * Alias for HttpStatus::reason().
+     * HTTP status description.
      *
      * @param int $status
      * @return string
-     * @uses HttpStatus::reason()
      */
-    public static function getReason(int $status): string
+    public static function getDescription(int $status): string
     {
-        return static::reason($status);
+        return static::$descriptions[$status] ?? '';
+    }
+
+    /**
+     * All HTTP status codes (array keys) with reason phrases (array values).
+     *
+     * @return string[]
+     */
+    public static function getAllReasons(): array
+    {
+        return static::$reasons;
+    }
+
+    /**
+     * All HTTP status codes (array keys) with status descriptions (array
+     * values).
+     *
+     * @return string[]
+     */
+    public static function getAllDescriptions(): array
+    {
+        return static::$descriptions;
     }
 }
