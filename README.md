@@ -2,12 +2,27 @@
 
 HTTP status codes as constants in one simple class.
 
-[RFC 9110](https://www.rfc-editor.org/rfc/rfc9110)
+[RFC 9110](https://www.rfc-editor.org/rfc/rfc9110),
+[RFC 6585](https://www.rfc-editor.org/rfc/rfc6585)
 
 ## Installation
 
 ```
 composer require nullform/http-status
+```
+
+## Usage
+
+```php
+use Nullform\HttpStatus;
+
+// some code...
+
+if ($response->getStatusCode() == HttpStatus::OK) {
+    // some code...
+} else {
+    $error = HttpStatus::getDescription($response->getStatusCode());
+}
 ```
 
 ## HttpStatus constants
@@ -50,12 +65,16 @@ composer require nullform/http-status
 - HttpStatus::MISDIRECTED_REQUEST
 - HttpStatus::UNPROCESSABLE_CONTENT
 - HttpStatus::UPGRADE_REQUIRED
+- HttpStatus::PRECONDITION_REQUIRED
+- HttpStatus::TOO_MANY_REQUESTS
+- HttpStatus::REQUEST_HEADER_FIELDS_TOO_LARGE
 - HttpStatus::INTERNAL_SERVER_ERROR
 - HttpStatus::NOT_IMPLEMENTED
 - HttpStatus::BAD_GATEWAY
 - HttpStatus::SERVICE_UNAVAILABLE
 - HttpStatus::GATEWAY_TIMEOUT
 - HttpStatus::HTTP_VERSION_NOT_SUPPORTED
+- HttpStatus::NETWORK_AUTHENTICATION_REQUIRED
 
 ## HttpStatus methods
 

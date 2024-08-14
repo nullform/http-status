@@ -3,9 +3,14 @@
 namespace Nullform;
 
 /**
- * HTTP/1.1 status codes (RFC 9110).
+ * HTTP/1.1 status codes.
+ *
+ * - RFC 9110
+ * - RFC 6585
  *
  * @link https://www.rfc-editor.org/rfc/rfc9110#name-status-codes
+ * @link https://www.rfc-editor.org/rfc/rfc6585
+ * @link https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
  */
 class HttpStatus
 {
@@ -501,6 +506,37 @@ class HttpStatus
     const UPGRADE_REQUIRED = 426;
 
     /**
+     * 428 Precondition Required.
+     *
+     * The 428 status code indicates that the origin server requires the
+     * request to be conditional.
+     *
+     * @link https://www.rfc-editor.org/rfc/rfc6585#section-3
+     */
+    const PRECONDITION_REQUIRED = 428;
+
+    /**
+     * 429 Too Many Requests.
+     *
+     * The 429 status code indicates that the user has sent too many
+     * requests in a given amount of time ("rate limiting").
+     *
+     * @link https://www.rfc-editor.org/rfc/rfc6585#section-4
+     */
+    const TOO_MANY_REQUESTS = 429;
+
+    /**
+     * 431 Request Header Fields Too Large.
+     *
+     * The 431 status code indicates that the server is unwilling to process
+     * the request because its header fields are too large. The request MAY
+     * be resubmitted after reducing the size of the request header fields.
+     *
+     * @link https://www.rfc-editor.org/rfc/rfc6585#section-5
+     */
+    const REQUEST_HEADER_FIELDS_TOO_LARGE = 431;
+
+    /**
      * 500 Internal Server Error.
      *
      * The 500 (Internal Server Error) status code indicates that the server
@@ -570,6 +606,16 @@ class HttpStatus
     const HTTP_VERSION_NOT_SUPPORTED = 505;
 
     /**
+     * 511 Network Authentication Required.
+     *
+     * The 511 status code indicates that the client needs to authenticate
+     * to gain network access.
+     *
+     * @link https://www.rfc-editor.org/rfc/rfc6585#section-6
+     */
+    const NETWORK_AUTHENTICATION_REQUIRED = 511;
+
+    /**
      * HTTP status reason phrases.
      *
      * @var string[]
@@ -613,12 +659,16 @@ class HttpStatus
         self::MISDIRECTED_REQUEST => 'Misdirected Request',
         self::UNPROCESSABLE_CONTENT => 'Unprocessable Content',
         self::UPGRADE_REQUIRED => 'Upgrade Required',
+        self::PRECONDITION_REQUIRED => 'Precondition Required',
+        self::TOO_MANY_REQUESTS => 'Too Many Requests',
+        self::REQUEST_HEADER_FIELDS_TOO_LARGE => 'Request Header Fields Too Large',
         self::INTERNAL_SERVER_ERROR => 'Internal Server Error',
         self::NOT_IMPLEMENTED => 'Not Implemented',
         self::BAD_GATEWAY => 'Bad Gateway',
         self::SERVICE_UNAVAILABLE => 'Service Unavailable',
         self::GATEWAY_TIMEOUT => 'Gateway Timeout',
         self::HTTP_VERSION_NOT_SUPPORTED => 'HTTP Version Not Supported',
+        self::NETWORK_AUTHENTICATION_REQUIRED => 'Network Authentication Required',
     ];
 
     /**
@@ -665,12 +715,16 @@ class HttpStatus
         self::MISDIRECTED_REQUEST => 'The request was directed at a server that is unable or unwilling to produce an authoritative response for the target URI.',
         self::UNPROCESSABLE_CONTENT => 'The server understands the content type of the request content, and the syntax of the request content is correct, but it was unable to process the contained instructions.',
         self::UPGRADE_REQUIRED => 'The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol.',
+        self::PRECONDITION_REQUIRED => 'The origin server requires the request to be conditional.',
+        self::TOO_MANY_REQUESTS => 'The user has sent too many requests in a given amount of time ("rate limiting").',
+        self::REQUEST_HEADER_FIELDS_TOO_LARGE => 'The server is unwilling to process the request because its header fields are too large.',
         self::INTERNAL_SERVER_ERROR => 'The server encountered an unexpected condition that prevented it from fulfilling the request.',
         self::NOT_IMPLEMENTED => 'The server does not support the functionality required to fulfill the request.',
         self::BAD_GATEWAY => 'The server, while acting as a gateway or proxy, received an invalid response from an inbound server it accessed while attempting to fulfill the request.',
         self::SERVICE_UNAVAILABLE => 'The server is currently unable to handle the request due to a temporary overload or scheduled maintenance.',
         self::GATEWAY_TIMEOUT => 'The server, while acting as a gateway or proxy, did not receive a timely response from an upstream server it needed to access in order to complete the request.',
         self::HTTP_VERSION_NOT_SUPPORTED => 'The server does not support, or refuses to support, the major version of HTTP that was used in the request message.',
+        self::NETWORK_AUTHENTICATION_REQUIRED => 'The client needs to authenticate to gain network access.',
     ];
 
     /**
